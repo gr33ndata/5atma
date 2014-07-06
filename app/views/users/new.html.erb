@@ -1,0 +1,16 @@
+<h1>New User</h1>
+
+<%= form_tag :action => 'create' do %>
+    <p>
+        Username: 
+        <%= text_field_tag 'username', @username %>
+    </p>
+
+    <p>
+        Password: 
+        <%= text_field_tag 'passwd', @passwd %>
+    </p>
+
+    <%= submit_tag 'Create', class: "button" %>
+<% end %>
+
