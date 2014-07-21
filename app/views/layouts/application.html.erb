@@ -36,7 +36,7 @@
           <% if current_user %>
           <li>
             <!--a hre="/u/show/<%= current_user.uid %>"><%= current_user.name %></a-->
-            <%= link_to current_user.name, "/u/#{current_user.uid}" %>
+            <%= link_to image_tag("#{current_user.image}", width: "24", height: "24", alt: "#{current_user.name}"), "/u/#{current_user.uid}" %>
           </li>
           <li class="has-form">
             <%= link_to "Sign out", signout_path, id: "sign_out" %>

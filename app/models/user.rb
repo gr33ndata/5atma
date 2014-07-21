@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  has_many :khatmas
+  has_and_belongs_to_many :chapters
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

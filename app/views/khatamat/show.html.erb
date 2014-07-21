@@ -1,1 +1,23 @@
-<h1>Khatamat Show Khatma</h1>
+<h1>Showing Khatma <%= @my_khatma.id %></h1>
+<p>Description: <%= @my_khatma.description %></p>
+<p>Owner: <%= @my_khatma.user.name %></p>
+
+<% @my_khatma.chapters.each do |chapter| %>
+  <p>
+    <b><%= "Chapter #{chapter.name}" %></b>
+    <% chapter.users.each do |u| %>
+        <%= link_to image_tag("#{u.image}", width: "44", height: "4 4", alt: "#{u.name}"), "/u/#{u.uid}" %>
+    <% end %>
+    <%= form_tag "#{@my_khatma.id}/add_user", method: "get" do %>
+        <%= hidden_field_tag :ch_id, chapter.name %>
+        <%= submit_tag "I'm in", class: "tiny button", data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </p>
+<% end %>
+
+<hr/>
+<h3>Danger Zone</h3>
+<%= form_tag do %>
+  <%= hidden_field_tag "_method", "delete" %>
+  <%= submit_tag "Delete khatma", class: "tiny alert button", data: { confirm: "Are you sure?" } %>
+<% end %>

@@ -5,13 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_khatamat = User.find(current_user).khatmas
   end
-
-  def new
-  end
-
-  def create
-  end
-
 
 end

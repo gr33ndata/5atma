@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703222850) do
+ActiveRecord::Schema.define(version: 20140721122248) do
+
+  create_table "chapters", force: true do |t|
+    t.string   "name"
+    t.string   "khatma_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "chapters_users", id: false, force: true do |t|
+    t.integer "chapter_id"
+    t.integer "user_id"
+  end
+
+  create_table "khatmas", force: true do |t|
+    t.string   "user_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"

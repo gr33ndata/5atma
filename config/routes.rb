@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   root :to => 'khatamat#index'
 
+  get 'k/:kh_id/add_user' => 'khatamat#add_user'
+  get 'k/:kh_id/del_user' => 'khatamat#del_user'
   resources :k, controller: 'khatamat'
+  
   resources :u, controller: 'users'
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

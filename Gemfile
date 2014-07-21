@@ -43,12 +43,15 @@ gem 'spring',        group: :development
 #gem "twitter-bootstrap-rails"
 
 # Figaro to securely configure Rails
+# HOWTO: http://railsapps.github.io/rails-environment-variables.html
+# HOWTO: https://github.com/laserlemon/figaro
 gem "figaro"
 
 # For Zurb Foundation
 gem 'foundation-rails'
 
 # For Facebook Auth
+# HOWTO: https://coderwall.com/p/bsfitw
 gem 'omniauth'
 gem 'omniauth-facebook'
 

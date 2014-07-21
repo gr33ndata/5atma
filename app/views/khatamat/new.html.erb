@@ -1,0 +1,12 @@
+<br/>
+<% if current_user %>
+  <%= form_tag :action => 'create' do %>
+      <p>
+          Descriptions: 
+          <%= text_field_tag 'description', @description %>
+      </p>
+      <%= submit_tag 'Create', class: "button" %>
+  <% end %>
+<% else %>
+  <p>You need to login first</p>
+<% end %>

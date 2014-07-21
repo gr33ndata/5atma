@@ -1,8 +1,17 @@
-<h1>Khatamat Index</h1>
-<% @agzaa.each do |goz| %>
-    <p><%=goz%></p>
-<% end %>
+<div class="row">
+  <div class="small-8 columns">
+    <h1>Khatamat Index</h1>
+  </div>
+  <div class="small-4 columns">
+    <br/>
+    <%= link_to controller: "khatamat", action: "new" do %>
+        <span class="tiny button">Create khatma</span>
+    <% end %>
+  </div>
+</div> 
 
-<% for i in 1..20 do %>
-    <p>Some text...</p>
+<% @my_khatamat.each do |k| %>
+    <p>
+        <%= link_to "Khatma #{k.id}", controller: "khatamat", action: "show", id: k.id %>
+    </p>
 <% end %>
