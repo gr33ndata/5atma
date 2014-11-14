@@ -10,8 +10,10 @@
   </div>
 </div> 
 
-<% @my_khatamat.each do |k| %>
-    <p>
-        <%= link_to "Khatma #{k.id}", controller: "khatamat", action: "show", id: k.id %>
-    </p>
+<ul>
+<% @khatamat.each do |k| %>
+  <li>
+      <%= link_to "#{k.description}", controller: "khatamat", action: "show", id: k.id %>
+  </li>
 <% end %>
+</ul>

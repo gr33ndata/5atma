@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,62 +14,59 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+
+    <link href='http://fonts.googleapis.com/earlyaccess/droidarabickufi.css' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css' rel='stylesheet' type='text/css'>
+
   </head>
 
-  <body>
+  <body class="font-droid-naskh">
 
-    <div class="contain-to-grid">
-    <nav class="top-bar" data-topbar>
-      
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="/" style="font-family: 'Lobster', cursive; font-size: 24px;">Khatmah</a></h1>
-        </li>
-         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-        
-        <!-- Right Nav Section -->
-        <ul class="right">
+    <div class="row">
+      <div class="large-4 columns">
+        <h1 class="font-droid-kufi text-right"><%= t('site_name') %></h1>
+      </div>
+      <div class="large-8 columns">
+        <ul class="custom-list-class left">
           <% if current_user %>
           <li>
-            <!--a hre="/u/show/<%= current_user.uid %>"><%= current_user.name %></a-->
             <%= link_to image_tag("#{current_user.image}", width: "24", height: "24", alt: "#{current_user.name}"), "/u/#{current_user.uid}" %>
           </li>
-          <li class="has-form">
-            <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          <li>
+            <%= link_to t('sign_out'), signout_path, id: "sign_out" %>
           </li>
           <% else %>
-          <li class="has-form">
-            <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+          <li>
+            <%= link_to t('sign_in'), "/auth/facebook", id: "sign_in" %>
           </li>
           <% end %>
         </ul>
-
-        <!-- Left Nav Section -->
-        <ul class="left">
-          <li class="divider"></li>
-          <li>
-            <a href="#">Left Nav Button</a>
-          </li>
-        </ul>
-
-      
-      </section>
-
-    </nav>
+      </div>
     </div>
 
     <div class="row">
-      <div class="small-2 columns">
+      <div class="small-12 columns">
         <br/>
       </div>
-      <div class="small-10 columns">
+    </div>  
+
+    <div class="row">
+      <div class="small-12 columns">
         <%= yield %> 
       </div>
-    </div>      
+    </div>  
+
+    <div class="row">
+      <div class="large-12 columns">
+        <hr/>
+      </div>
+    </div> 
+
+    <div class="row">
+      <div class="large-12 columns">
+        <p class="font-droid-small muted text-center"><%= t('about_khatma') %></p>
+      </div>
+    </div>    
     
   </body>
 </html>

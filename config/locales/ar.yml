@@ -19,8 +19,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  site_name: Khatmah  
-  sign_out: Sign out
-  sign_in: Sign in with Facebook
-  i_will_read_this: I will read this
+ar:
+  site_name: خَتمة  
+  sign_out: سجل خروج
+  sign_in: سجل دخول بالفيسبوك
+  about_khatma: تطبيق لتنظيم المشاركة في إهداء ثواب قرآة القرآن
+  i_will_read_this: سأقرأه

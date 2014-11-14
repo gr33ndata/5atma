@@ -56,8 +56,11 @@
 
 // We use these to control text direction settings
 // $text-direction: ltr;
+$text-direction: rtl;
 // $opposite-direction: right;
+$opposite-direction: left;
 // $default-float: left;
+$default-float: right;
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;
@@ -66,6 +69,7 @@
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
+$white-color: #ffffff;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -344,6 +348,7 @@
 
 // We use these to build padding for buttons.
 // $button-tny: rem-calc(10);
+$button-tny: rem-calc(4);
 // $button-sml: rem-calc(14);
 // $button-med: rem-calc(16);
 // $button-lrg: rem-calc(18);
@@ -1297,4 +1302,16 @@
 // $range-slider-handle-bg-hover-color: scale-color($primary-color, $lightness: -12%);
 // $range-slider-handle-cursor: pointer;
 
+
 @import 'foundation';
+
+// Customizations added by Tarek
+
+.custom-list-class {
+  @include inline-list();
+  margin: 10px;
+  padding: 10px;
+  padding-right: 2px;
+  padding-left: 18px;
+  background-color: #fff;
+}

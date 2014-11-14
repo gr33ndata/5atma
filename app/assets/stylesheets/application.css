@@ -16,4 +16,27 @@
 
  */
 
+ .font-droid-naskh{
+    font-family: 'Droid Arabic Naskh', serif;
+ }
+
+ .font-droid-kufi{
+    font-family: 'Droid Arabic Kufi', serif;
+ }
+
+ .font-droid-small{
+    font-family: 'Droid Arabic Kufi', serif;
+    font-size: 0.9rem;
+    line-height: 0.6rem;
+    margin-bottom: 0.5rem;
+    color: #666666;
+ }
+
+ .muted{
+    color: #666666;
+ }   
+
+ .footer{
+    background-color: #aaaaaa;
+ }  
 

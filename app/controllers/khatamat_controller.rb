@@ -1,13 +1,13 @@
 class KhatamatController < ApplicationController
 
     def index
-        @my_khatamat = Khatma.all
+        @khatamat = Khatma.all
     end
 
     def show
         puts "params:" 
         puts params
-        @my_khatma = Khatma.find(params[:id])
+        @khatma = Khatma.find(params[:id])
     end
 
     def new

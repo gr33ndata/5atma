@@ -1,16 +1,16 @@
-<h1>Showing Khatma <%= @my_khatma.id %></h1>
-<p>Description: <%= @my_khatma.description %></p>
-<p>Owner: <%= @my_khatma.user.name %></p>
+<h1><%= @khatma.description %></h1>
+<p>Owner: <%= @khatma.user.name %></p>
 
-<% @my_khatma.chapters.each do |chapter| %>
+<% @khatma.chapters.each do |chapter| %>
+  <hr/>
   <p>
-    <b><%= "Chapter #{chapter.name}" %></b>
+    <b>الجزء <%= chapter.name %></b>
     <% chapter.users.each do |u| %>
         <%= link_to image_tag("#{u.image}", width: "44", height: "4 4", alt: "#{u.name}"), "/u/#{u.uid}" %>
     <% end %>
-    <%= form_tag "#{@my_khatma.id}/add_user", method: "get" do %>
+    <%= form_tag "#{@khatma.id}/add_user", method: "get" do %>
         <%= hidden_field_tag :ch_id, chapter.name %>
-        <%= submit_tag "I'm in", class: "tiny button", data: { confirm: "Are you sure?" } %>
+        <%= submit_tag t('i_will_read_this'), class: "button tiny round success font-droid-kufi", data: { confirm: "Are you sure?" } %>
     <% end %>
   </p>
 <% end %>
