@@ -1,5 +1,16 @@
-<h1>Users</h1>
-<% @users.each do |user| %>
-    <p><%= user.name %> <%= user.uid %></p>
-<% end %>
+<div class="row">
+  <div class="small-12 columns">
+    <h1><%= t('users_list') %></h1>
+  </div>
+</div> 
+
+<div class="row">
+  <div class="small-12 columns">
+    <ul class="inline-list">
+    <% @users.each do |user| %>
+        <li><%= link_to image_tag("#{user.image}", width: "44", height: "44", alt: "#{user.name}"), "/u/#{user.uid}", class: "th radius" %></li>
+    <% end %>
+    </ul>
+  </div>
+</div> 
 

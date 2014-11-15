@@ -1,11 +1,27 @@
-<h1>
-    <%= image_tag "#{current_user.image}" %>
-    <%= current_user.name %>
-</h1>
-<hr/>
-<h3>User's Khatamat</h3>
-<ul>
-<% @user_khatamat.each do |k| %>
-    <li><%= k.description %></li>
-<% end %>
-</ul>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>
+        <%= image_tag "#{current_user.image}", class: "th radius" %>
+        <%= current_user.name %>
+    </h1>
+  </div>
+</div> 
+
+<div class="row">
+  <div class="small-12 columns">
+    <hr/>
+  </div>
+</div> 
+
+<div class="row">
+  <div class="small-12 columns">
+    <h3>ختمات أنشأها هذا المستخدم</h3>
+    <ul>
+    <% @user_khatamat.each do |k| %>
+        <li><%= link_to "#{k.description}", controller: "khatamat", action: "show", id: k.id %></li>
+    <% end %>
+    </ul>
+  </div>
+</div> 
+
+
