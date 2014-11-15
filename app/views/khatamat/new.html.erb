@@ -1,12 +1,24 @@
-<br/>
-<% if current_user %>
-  <%= form_tag :action => 'create' do %>
-      <p>
-          Descriptions: 
-          <%= text_field_tag 'description', @description %>
-      </p>
-      <%= submit_tag 'Create', class: "button" %>
-  <% end %>
-<% else %>
-  <p>You need to login first</p>
-<% end %>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>بدء ختمة جديدة</h1>
+  </div>
+</div> 
+
+<div class="row">
+  <div class="small-12 columns">
+    <% if current_user %>
+      <%= form_tag :action => 'create' do %>
+          <p>
+              <%= t('add_title_khatma') %>: 
+              <%= text_field_tag 'description', @description %>
+          </p>
+          <p class="text-center">
+            <%= submit_tag t('create'), class: "button small round success" %>
+          </p>
+      <% end %>
+    <% else %>
+      <p>You need to login first</p>
+    <% end %>
+  </div>
+</div> 
+

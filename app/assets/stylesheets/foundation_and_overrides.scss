@@ -69,7 +69,6 @@ $default-float: right;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
-$white-color: #ffffff;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -184,7 +183,9 @@ $white-color: #ffffff;
 // $anchor-text-decoration: none;
 // $anchor-text-decoration-hover: none;
 // $anchor-font-color: $primary-color;
+$anchor-font-color: #724;
 // $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
+$anchor-font-color-hover: scale-color($anchor-font-color, $lightness: 14%);
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
@@ -1307,11 +1308,34 @@ $button-tny: rem-calc(4);
 
 // Customizations added by Tarek
 
-.custom-list-class {
+.top-login-menu {
   @include inline-list();
   margin: 10px;
   padding: 10px;
   padding-right: 2px;
   padding-left: 18px;
   background-color: #fff;
+}
+
+.timeline-item {
+  @include panel(
+    // Sets the panel background color. Default: $panel-pg
+    $bg: #efefef,
+    // Sets the panel padding amount. Default: $panel-padding
+    $padding: 10px,
+    // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
+    $adjust:true
+  );
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.black-text{
+    color: $header-font-color;
+}
+
+.grey-text{
+    color: #666;
 }

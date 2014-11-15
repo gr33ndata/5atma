@@ -23,5 +23,9 @@ ar:
   site_name: خَتمة  
   sign_out: سجل خروج
   sign_in: سجل دخول بالفيسبوك
+  you_need_to_sign_in: يلزمج تسجيل الدخول أولا
   about_khatma: تطبيق لتنظيم المشاركة في إهداء ثواب قرآة القرآن
   i_will_read_this: سأقرأه
+  i_will_not_read_this: لن أقرأه
+  add_title_khatma: ضع عنوانا للختمة
+  create: إنشاء الختمة

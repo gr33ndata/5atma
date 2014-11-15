@@ -1,19 +1,33 @@
 <div class="row">
-  <div class="small-8 columns">
-    <h1>Khatamat Index</h1>
+  <div class="small-12 columns">
+    <h1>أحدث الختمات</h1>
   </div>
-  <div class="small-4 columns">
-    <br/>
+</div> 
+
+<% @khatamat.each do |k| %>
+<div class="row listing">
+  <div class="small-1 columns text-center">
+    <%= link_to image_tag("#{k.user.image}", width: "32", height: "32", alt: "#{k.user.name}"), "/u/#{k.user.uid}", class: "th" %>
+  </div>
+  <div class="small-11 columns text-right">
+    <h4><%= link_to "#{k.description}", controller: "khatamat", action: "show", id: k.id %></h4>
+  </div>
+</div> 
+<% end %>
+
+<div class="row">
+  <div class="small-12 text-center">
+    <hr/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 text-center">
     <%= link_to controller: "khatamat", action: "new" do %>
-        <span class="tiny button">Create khatma</span>
+        <span class="button small success round font-droid-kufi">إبدأ ختمة جديدة</span>
     <% end %>
   </div>
 </div> 
 
-<ul>
-<% @khatamat.each do |k| %>
-  <li>
-      <%= link_to "#{k.description}", controller: "khatamat", action: "show", id: k.id %>
-  </li>
-<% end %>
-</ul>
+
+

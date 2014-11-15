@@ -8,6 +8,7 @@ class KhatamatController < ApplicationController
         puts "params:" 
         puts params
         @khatma = Khatma.find(params[:id])
+        @myself = current_user
     end
 
     def new
@@ -36,8 +37,12 @@ class KhatamatController < ApplicationController
 
     def destroy
         @my_khatma = Khatma.find(params[:id])
-        @my_khatma.destroy
-        redirect_to action: "index"
+        if current_user == @my_khatma.user
+            @my_khatma.destroy
+            redirect_to action: "index"
+        else
+            redirect_to action: "index"
+        end    
     end
 
     def add_user
@@ -56,9 +61,16 @@ class KhatamatController < ApplicationController
     end
 
     def del_user
-        ch_id = params[:ch_id]
-        kh_id = params[:kh_id]
-        redirect_to action: "show", id: kh_id
+        if current_user
+            ch_id = params[:ch_id]
+            kh_id = params[:kh_id]
+            @my_chapter = Chapter.where(name: ch_id, khatma_id: kh_id)
+            current_user.chapters.delete(@my_chapter)
+            current_user.save
+            redirect_to action: "show", id: kh_id
+        else
+            redirect_to action: "show", id: kh_id
+        end
     end
 
 end

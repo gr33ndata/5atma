@@ -1,23 +1,81 @@
-<h1><%= @khatma.description %></h1>
-<p>Owner: <%= @khatma.user.name %></p>
+<div id="myModal" class="reveal-modal medium" data-reveal>
+  <h2 class="font-droid-kufi">تحذير</h2>
+  <h3 class="panel"><%= t('you_need_to_sign_in') %></h3>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div class="row">
+  <div class="small-1 columns text-right">
+    <%= link_to image_tag("#{@khatma.user.image}", width: "64", height: "64", alt: "#{@khatma.user.name}"), "/u/#{@khatma.user.uid}", class: "th radius" %>
+  </div>
+  <div class="small-11 columns text-right">
+    <h2 class"text-right"><%= @khatma.description %></h2>
+  </div>
+</div> 
+
+<div class="row">
+  <div class="small-12 columns">
+    <br/>
+  </div>
+</div> 
+
 
 <% @khatma.chapters.each do |chapter| %>
-  <hr/>
-  <p>
-    <b>الجزء <%= chapter.name %></b>
-    <% chapter.users.each do |u| %>
-        <%= link_to image_tag("#{u.image}", width: "44", height: "4 4", alt: "#{u.name}"), "/u/#{u.uid}" %>
-    <% end %>
-    <%= form_tag "#{@khatma.id}/add_user", method: "get" do %>
-        <%= hidden_field_tag :ch_id, chapter.name %>
-        <%= submit_tag t('i_will_read_this'), class: "button tiny round success font-droid-kufi", data: { confirm: "Are you sure?" } %>
-    <% end %>
-  </p>
+<div class="timeline-item radius">
+  <div class="row">
+    <div class="small-10 columns text-right">
+      <h3 class="font-droid-kufi">الجزء <%= chapter.name %></h3>
+    </div>
+    <div class="small-2 columns text-left">
+      <% if @myself == nil %>
+        <a heref="#" data-reveal-id="myModal" class="button tiny radius success disabeld font-droid-kufi"><%= t('i_will_read_this') %></a>
+      <% elsif chapter.users.include? @myself %>
+        <%= form_tag "#{@khatma.id}/del_user", method: "get" do %>
+          <%= hidden_field_tag :ch_id, chapter.name %>
+          <%= submit_tag t('i_will_not_read_this'), class: "button tiny radius alert font-droid-kufi #{@read_button_class}", data: { confirm: "Are you sure?" } %>
+        <% end %>
+      <% else %>
+        <%= form_tag "#{@khatma.id}/add_user", method: "get" do %>
+          <%= hidden_field_tag :ch_id, chapter.name %>
+          <%= submit_tag t('i_will_read_this'), class: "button tiny radius success font-droid-kufi #{@read_button_class}", data: { confirm: "Are you sure?" } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div> 
+  <% if chapter.users.size != 0 %>
+  <div class="row">
+    <div class="small-12 columns">
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-1 columns text-left">
+      <h4><span class="grey-text">يقرأه:</span></h4>
+    </div>
+    <div class="small-11 columns text-right">
+      <% chapter.users.each do |u| %>
+        <%= link_to image_tag("#{u.image}", width: "24", height: "24", alt: "#{u.name}"), "/u/#{u.uid}" %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
 <% end %>
 
-<hr/>
-<h3>Danger Zone</h3>
-<%= form_tag do %>
-  <%= hidden_field_tag "_method", "delete" %>
-  <%= submit_tag "Delete khatma", class: "tiny alert button", data: { confirm: "Are you sure?" } %>
+<% if @khatma.user == @myself %>
+<div class="row">
+  <div class="small-12 columns">
+    <hr/>
+  </div>
+</div> 
+<div class="row">
+  <div class="small-12 columns">
+    <h3>Danger Zone</h3>
+
+    <%= form_tag do %>
+      <%= hidden_field_tag "_method", "delete" %>
+      <%= submit_tag "Delete khatma", class: "tiny alert button", data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
+</div> 
 <% end %>

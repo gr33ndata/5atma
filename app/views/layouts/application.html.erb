@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>
-      <%= content_for?(:title) ? yield(:title) : "foundation-rails" %>
+      <%= content_for?(:title) ? yield(:title) : t('site_name') %>
     </title>
 
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -24,10 +24,12 @@
 
     <div class="row">
       <div class="large-4 columns">
-        <h1 class="font-droid-kufi text-right"><%= t('site_name') %></h1>
+        <h1 class="font-droid-kufi text-right">
+          <a href="/" class="black-text disabled"><%= t('site_name') %></a>
+        </h1>
       </div>
       <div class="large-8 columns">
-        <ul class="custom-list-class left">
+        <ul class="top-login-menu left">
           <% if current_user %>
           <li>
             <%= link_to image_tag("#{current_user.image}", width: "24", height: "24", alt: "#{current_user.name}"), "/u/#{current_user.uid}" %>
