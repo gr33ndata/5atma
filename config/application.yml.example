@@ -1,0 +1,4 @@
+# Add application configuration variables here, as shown below.
+
+FB_APP_ID: '01234567'
+FB_APP_SECRET: '1234abcd1234efgh1234ijkl'
