@@ -6,10 +6,10 @@
 
 <% @khatamat.each do |k| %>
 <div class="row listing">
-  <div class="small-1 columns text-center">
-    <%= link_to image_tag("#{k.user.image}", width: "32", height: "32", alt: "#{k.user.name}"), "/u/#{k.user.uid}", class: "th" %>
+  <div class="small-3 large-1 columns text-center">
+    <%= link_to image_tag("#{k.user.image}", width: "32", height: "32", alt: "#{k.user.name}"), "/u/#{k.user.uid}", class: "th radius" %>
   </div>
-  <div class="small-11 columns text-right">
+  <div class="small-9 large-11 columns text-right">
     <h4><%= link_to "#{k.description}", controller: "khatamat", action: "show", id: k.id %></h4>
   </div>
 </div> 

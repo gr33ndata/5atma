@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_khatamat = User.find(current_user).khatmas
+    uid = params[:id]
+    @user = User.find_by(uid: uid)
+    if @user == nil
+        redirect_to action: "index"
+    else    
+        @user_khatamat = Khatma.where(user_id: @user)
+    end
   end
 
 end

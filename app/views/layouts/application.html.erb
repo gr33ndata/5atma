@@ -23,16 +23,16 @@
   <body class="font-droid-naskh">
 
     <div class="row">
-      <div class="large-4 columns">
+      <div class="small-2 large-4 columns">
         <h1 class="font-droid-kufi text-right">
           <a href="/" class="black-text disabled"><%= t('site_name') %></a>
         </h1>
       </div>
-      <div class="large-8 columns">
+      <div class="small-10 large-8 columns">
         <ul class="top-login-menu left">
           <% if current_user %>
           <li>
-            <%= link_to image_tag("#{current_user.image}", width: "24", height: "24", alt: "#{current_user.name}"), "/u/#{current_user.uid}" %>
+            <%= link_to image_tag("#{current_user.image}", width: "24", height: "24", alt: "#{current_user.name}"), "/u/#{current_user.uid}", class: "th radius" %>
           </li>
           <li>
             <%= link_to t('sign_out'), signout_path, id: "sign_out" %>
@@ -59,14 +59,35 @@
     </div>  
 
     <div class="row">
-      <div class="large-12 columns">
+      <div class="small-12 text-center">
         <hr/>
+      </div>
+    </div>
+
+    <div class="row show-for-small-only">
+      <div class="small-12 columns text-center">
+        <p class="font-droid-kufi muted">
+          <a href="/about"><%= t('about_us_long') %></a>
+        </p>
       </div>
     </div> 
 
-    <div class="row">
-      <div class="large-12 columns">
-        <p class="font-droid-small muted text-center"><%= t('about_khatma') %></p>
+    <div class="row show-for-medium-up">
+      <div class="small-6 columns text-right">
+        <p class="font-droid-kufi muted">
+          <a href="/"><%= t('back_home') %>
+        </p>
+        <br/>
+      </div>
+      <div class="small-6 columns text-left">
+        <ul class="inline-list left">
+          <li class="font-droid-kufi muted">
+            <a href="/about"><%= t('about_us')%></a>
+          </li> 
+          <li class="font-droid-kufi muted">
+            <a href="/about"><%= t('contact_us')%></a>
+          </li>
+        </ul>
       </div>
     </div>    
     

@@ -9,6 +9,13 @@ class KhatamatController < ApplicationController
         puts params
         @khatma = Khatma.find(params[:id])
         @myself = current_user
+        @progress = 0
+        @khatma.chapters.each do |chapter|
+            if chapter.users.size != 0
+                @progress += 1
+            end
+        end
+        @progress_percent = @progress * 100 / 30
     end
 
     def new

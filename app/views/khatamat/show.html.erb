@@ -23,38 +23,38 @@
 <% @khatma.chapters.each do |chapter| %>
 <div class="timeline-item radius">
   <div class="row">
-    <div class="small-10 columns text-right">
+    <div class="small-6 large-10 columns text-right">
       <h3 class="font-droid-kufi">الجزء <%= chapter.name %></h3>
     </div>
-    <div class="small-2 columns text-left">
+    <div class="small-6 large-2 columns text-left">
       <% if @myself == nil %>
         <a heref="#" data-reveal-id="myModal" class="button tiny radius success disabeld font-droid-kufi"><%= t('i_will_read_this') %></a>
       <% elsif chapter.users.include? @myself %>
         <%= form_tag "#{@khatma.id}/del_user", method: "get" do %>
           <%= hidden_field_tag :ch_id, chapter.name %>
-          <%= submit_tag t('i_will_not_read_this'), class: "button tiny radius alert font-droid-kufi #{@read_button_class}", data: { confirm: "Are you sure?" } %>
+          <%= submit_tag t('i_will_not_read_this'), class: "button tiny radius alert font-droid-kufi #{@read_button_class}", data: { confirm: t('are_you_sure') } %>
         <% end %>
       <% else %>
         <%= form_tag "#{@khatma.id}/add_user", method: "get" do %>
           <%= hidden_field_tag :ch_id, chapter.name %>
-          <%= submit_tag t('i_will_read_this'), class: "button tiny radius success font-droid-kufi #{@read_button_class}", data: { confirm: "Are you sure?" } %>
+          <%= submit_tag t('i_will_read_this'), class: "button tiny radius success font-droid-kufi #{@read_button_class}", data: { confirm: t('are_you_sure') } %>
         <% end %>
       <% end %>
     </div>
   </div> 
   <% if chapter.users.size != 0 %>
   <div class="row">
-    <div class="small-12 columns">
+    <div class="small-12 large-12 columns">
       <hr/>
     </div>
   </div>
   <div class="row">
-    <div class="small-1 columns text-left">
+    <div class="small-3 large-1 columns text-left">
       <h4><span class="grey-text">يقرأه:</span></h4>
     </div>
-    <div class="small-11 columns text-right">
+    <div class="small-9 large-11 columns text-right">
       <% chapter.users.each do |u| %>
-        <%= link_to image_tag("#{u.image}", width: "24", height: "24", alt: "#{u.name}"), "/u/#{u.uid}" %>
+        <%= link_to image_tag("#{u.image}", width: "24", height: "24", alt: "#{u.name}"), "/u/#{u.uid}", class: "th radius" %>
       <% end %>
     </div>
   </div>
@@ -62,20 +62,52 @@
 </div>
 <% end %>
 
-<% if @khatma.user == @myself %>
 <div class="row">
   <div class="small-12 columns">
     <hr/>
   </div>
 </div> 
-<div class="row">
-  <div class="small-12 columns">
-    <h3>Danger Zone</h3>
 
+<div class="row">
+  <div class="small-6 large-9 columns text-left">
+    <h5>
+      <div class="progress large-10 success round">
+        <span class="meter" style="width: <%=@progress_percent%>%"></span>
+      </div>
+    </h5>
+  </div>
+  <div class="small-6 large-3 columns text-center">
+    <h5>
+      <span class="font-droid-kufi">شارك في نشرها</span>
+      &nbsp;
+      <%= link_to image_tag("twitter-bw.png", width: "32", height: "32", alt: "Share on twitter"), "#", id: "twitter_share" %>
+      <%= link_to image_tag("facebook-bw.png", width: "32", height: "32", alt: "Share on Facebook"), "#", id: "facebook_share" %>
+      <span id="social_share_text" style="display: none;">شارك في ختم القرآن</span>
+    </h5>
+  </div>
+</div> 
+
+<% if @khatma.user == @myself %>
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <hr/>
+  </div>
+</div> 
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <h3><%= t('take_care') %></h3>
+    <p>أتريد حذف هذه الختمة؟</p>
     <%= form_tag do %>
       <%= hidden_field_tag "_method", "delete" %>
-      <%= submit_tag "Delete khatma", class: "tiny alert button", data: { confirm: "Are you sure?" } %>
+      <%= submit_tag t('delete_this'), class: "button tiny radius alert ", data: { confirm: t('are_you_sure') } %>
     <% end %>
   </div>
 </div> 
 <% end %>
+
+<script src="/assets/build_share_buttons.js"></script>
+<script>
+  $(function(){
+    build_share_buttons();
+  });
+</script>
