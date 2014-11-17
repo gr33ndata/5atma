@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user == nil
         redirect_to action: "index"
     else    
-        @user_khatamat = Khatma.where(user_id: @user)
+        @user_khatamat = Khatma.where(user_id: @user.id.to_s)
     end
   end
 
