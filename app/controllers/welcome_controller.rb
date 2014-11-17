@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+
   def about
   end
 
@@ -7,4 +8,5 @@ class WelcomeController < ApplicationController
 
   def privacy
   end
+  
 end

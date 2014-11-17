@@ -20,10 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  site_name: Khatmah  
+  site_name: 5atma  
   sign_out: Sign out
   sign_in: Sign in with Facebook
+  you_need_to_sign_in: You need to sing in
+  take_care: Danger zone
+  are_you_sure: Are you sure
+  delete_this: Delete this
+  contact_us: Contact Us
+  about_us: About Us
+  about_us_long: Web application for organizing Quran recitation
+  back_home: Homepage
   i_will_read_this: I will read this
   i_will_not_read_this: I will not read this
   add_title_khatma: Add title to khatma
   create: create
+  users_list: Users list

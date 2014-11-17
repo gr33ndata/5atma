@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  private
+  def current_url
+    @current_url = request.original_url
+  end
+  helper_method :current_url
+
+
 end
