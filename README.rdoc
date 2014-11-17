@@ -1,7 +1,6 @@
-== README
+== 5ATMA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This still in production, will update this README file once done! Ignore the rest of this file for now.
 
 Things you may want to cover:
 
