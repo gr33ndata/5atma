@@ -5,7 +5,7 @@
 <% content_for :fb_meta_tags do %>
   <!--Facebook Meta Tags-->
   <meta property="og:locale" content="ar_EG">
-  <meta property="og:image" content="http://5atma.net/assets/fbbanner.png"/>
+  <meta property="og:image" content="http://5atma.net<%= image_path('fbbanner.png') %>"/>
   <meta property="og:url" content="http://5atma.net/k/<%= @khatma.id %>"/>
   <meta property="og:title" content="<%= @khatma.description %>"/>
   <meta property="og:site_name" content="<%= t('site_name') %>">
