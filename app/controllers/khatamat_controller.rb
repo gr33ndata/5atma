@@ -5,8 +5,7 @@ class KhatamatController < ApplicationController
     end
 
     def show
-        puts "params:" 
-        puts params
+        @errmsg = params[:errmsg]
         @khatma = Khatma.find(params[:id])
         @myself = current_user
         @progress = 0
@@ -16,6 +15,8 @@ class KhatamatController < ApplicationController
             end
         end
         @progress_percent = @progress * 100 / 30
+    rescue
+        redirect_to action: "index"
     end
 
     def new
@@ -63,7 +64,7 @@ class KhatamatController < ApplicationController
             #@my_chapter.save 
             redirect_to action: "show", id: kh_id
         else
-            redirect_to action: "show", id: kh_id
+            redirect_to action: "show", id: kh_id, errmsg: 'yuck'
         end
     end
 
