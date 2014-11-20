@@ -54,6 +54,7 @@ gem 'foundation-rails'
 
 # For Facebook Auth
 # HOWTO: https://coderwall.com/p/bsfitw
+# Auth Hash: https://github.com/mkdynamic/omniauth-facebook
 gem 'omniauth'
 gem 'omniauth-facebook'
 
