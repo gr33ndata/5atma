@@ -18,18 +18,6 @@
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
-<% if @errmsg %>
-<div class="row">
-  <div class="small-12 columns text-right">
-    <div data-alert class="alert-box warning radius">
-      <%= @errmsg %>
-      <a href="#" class="close">&times;</a>
-    </div>
-    <br/><br/>
-  </div>
-</div> 
-<% end %>
-
 <div class="row">
   <div class="small-1 columns text-right">
     <%= link_to image_tag("#{@khatma.user.image}", width: "64", height: "64", alt: "#{@khatma.user.name}"), "/u/#{@khatma.user.uid}", class: "th radius" %>

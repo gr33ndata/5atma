@@ -5,7 +5,6 @@ class KhatamatController < ApplicationController
     end
 
     def show
-        @errmsg = params[:errmsg]
         @khatma = Khatma.find(params[:id])
         @myself = current_user
         @progress = 0
