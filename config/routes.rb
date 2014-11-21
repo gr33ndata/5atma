@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  # Ensures www.5atma.net is redirected to 5atma.net
   constraints subdomain: 'www' do
     get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
   end
 
+  # About us, contact us and privacy policy
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'
   get 'privacy' => 'welcome#privacy'
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   
   resources :u, controller: 'users'
 
+  # For Facebook Authentication (OmniAuth)
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
