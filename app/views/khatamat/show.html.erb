@@ -12,8 +12,8 @@
   <meta property="og:description" content="<%= t('about_us_long') %>">
 <% end %>
 
-<div id="myModal" class="reveal-modal medium" data-reveal>
-  <h2 class="font-droid-kufi">تحذير</h2>
+<div id="signinWarning" class="reveal-modal medium" data-reveal>
+  <h2 class="font-droid-kufi"><%= t('warning') %></h2>
   <h3 class="panel"><%= t('you_need_to_sign_in') %></h3>
   <a class="close-reveal-modal">&#215;</a>
 </div>
@@ -42,7 +42,7 @@
     </div>
     <div class="small-6 large-2 columns text-left">
       <% if @myself == nil %>
-        <a heref="#" data-reveal-id="myModal" class="button tiny radius success disabeld font-droid-kufi"><%= t('i_will_read_this') %></a>
+        <a heref="/" class="button tiny radius success font-droid-kufi" onclick="reveal_my_modal('#signinWarning');"><%= t('i_will_read_this') %></a>
       <% elsif chapter.users.include? @myself %>
         <%= form_tag "#{@khatma.id}/del_user", method: "get" do %>
           <%= hidden_field_tag :ch_id, chapter.name %>
@@ -124,4 +124,8 @@
   $(function(){
     build_share_buttons();
   });
+
+  function reveal_my_modal(modal_id){
+    $(modal_id).foundation('reveal', 'open');
+  }  
 </script>

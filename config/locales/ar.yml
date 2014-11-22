@@ -23,7 +23,7 @@ ar:
   site_name: خَتمة  
   sign_out: سجل خروج
   sign_in: سجل دخول بالفيسبوك
-  you_need_to_sign_in: يلزمج تسجيل الدخول أولا
+  you_need_to_sign_in: يلزمك تسجيل الدخول أولا
   take_care: كن حذرا
   are_you_sure: هل أنت متأكد؟
   delete_this: إحذفها
@@ -35,4 +35,5 @@ ar:
   i_will_not_read_this: لن أقرأه
   add_title_khatma: ضع عنوانا للختمة
   create: إنشاء الختمة
+  warning: تحذير
   users_list: قائمة المستخدمين
