@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: MyString
-  passwd: MyString
+u1:
+  provider: "facebook"
+  uid: "100001"
+  name: "User one"
+  email: "user1@email.com"
+  image: "http://images/user1.png"
 
-two:
-  username: MyString
-  passwd: MyString
+u2:
+  provider: "facebook"
+  uid: "100002"
+  name: "User two"
+  email: "user2@email.com"
+  image: "http://images/user2.png"

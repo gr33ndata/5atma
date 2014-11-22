@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class ChapterTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "two chapters created" do
+    chapters_count = Chapter.all.size
+    assert_equal 2, chapters_count, "Chapters in DB != 2"
+  end
+
 end
