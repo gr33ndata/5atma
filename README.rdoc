@@ -1,4 +1,4 @@
-== 5ATMA
+== 5atma 
 
 This still in production, will update this README file once done! Ignore the rest of this file for now.
 
