@@ -1,31 +1,44 @@
-== 5atma 
+= 5atma.net 
 
-This still in production, will update this README file once done! Ignore the rest of this file for now.
+This still in production, will update this README file once done!
 
-Things you may want to cover:
+== About 5atma
 
-* Ruby version
+5atma is a web applications for people to organize how they want to divide the recitation of Quarn among themselves.
+
+== Notes for Developers 
+
+=== Ruby version
 
 We use ruby 2.1.0 and Rails 4.1.1.
 
-* System dependencies
+=== System dependencies
 
-* Configuration
+=== Configuration
 
-Copy `config/application.yml.example` to `config/application.yml.example` and enter your Facebook App ID and Secret there.
+Copy +config/application.yml.example+ to +config/application.yml.example+ and enter your Facebook App ID and Secret there, or if your hosting allows you to enter the ENV variables somewhere in your admin panel.
 
-* Database creation
+=== Database creation
 
-* Database initialization
+To be writter later.
 
-* How to run the test suite
+=== Database initialization
 
-* Services (job queues, cache servers, search engines, etc.)
+To be writter later.
 
-* Deployment instructions
+=== How to run the test suite
 
-* ...
+To test, run the following command
 
+  $ rake test
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== Services (job queues, cache servers, search engines, etc.)
+
+To be writter later.
+
+=== Deployment instructions
+
+To be writter later.
+
+== License
+
