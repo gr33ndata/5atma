@@ -1,7 +1,7 @@
 class KhatamatController < ApplicationController
 
     def index
-        @khatamat = Khatma.all
+        @khatamat = Khatma.limit(20).order(created_at: :desc)
     end
 
     def show
