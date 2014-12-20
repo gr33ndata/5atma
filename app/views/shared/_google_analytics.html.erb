@@ -7,12 +7,12 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-56995615-1', '5atma.net');
+    ga('require', 'displayfeatures');
     <% if current_user %>
     ga('set', '&uid', '<%= current_user.uid %>');
     <% else %>
     ga('set', '&uid', '0');
     <% end %>
-    ga('require', 'displayfeatures');
     ga('send', 'pageview');
 
     </script>  
