@@ -28,7 +28,7 @@ class KhatamatController < ApplicationController
             @my_khatma = Khatma.new
             @my_khatma.description = @description 
             @my_khatma.user_id = @owner
-            @my_khatma.save
+            @my_khatma.save!
             # Create Khatma Chapters
             for i in 1..30
                 @new_chapter = Chapter.new
@@ -36,10 +36,12 @@ class KhatamatController < ApplicationController
                 @new_chapter.name = "#{i}"
                 @new_chapter.save
             end
-            redirect_to action: "index"
+            redirect_to action: "index", anchor: 'success'
         else
             render action: "new"
         end
+    rescue
+        redirect_to action: "index", anchor: 'failed'
     end
 
     def destroy
