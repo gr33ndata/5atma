@@ -36,7 +36,7 @@ class KhatamatController < ApplicationController
                 @new_chapter.name = "#{i}"
                 @new_chapter.save
             end
-            redirect_to action: "show", id: @my_khatma.id
+            redirect_to action: "show", id: @my_khatma.id, anchor: 'created_successfully'
         else
             render action: "new", anchor: 'failed'
         end
