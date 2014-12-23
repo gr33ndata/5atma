@@ -15,7 +15,7 @@ class KhatamatController < ApplicationController
         end
         @progress_percent = @progress * 100 / 30
     rescue
-        redirect_to action: "index"
+        redirect_to action: "index", anchor: 'failed'
     end
 
     def new
