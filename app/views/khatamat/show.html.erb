@@ -4,17 +4,18 @@
 
 <% content_for :fb_meta_tags do %>
   <!--Facebook Meta Tags-->
-  <meta property="og:locale" content="ar_AR">
+  <meta property="og:type" content="website" />  
+  <meta property="og:locale" content="<%= t(:locale) %>">
   <meta property="og:image" content="http://5atma.net<%= image_path('fbbanner.png') %>"/>
   <meta property="og:url" content="http://5atma.net/k/<%= @khatma.id %>"/>
   <meta property="og:title" content="<%= @khatma.description %>"/>
-  <meta property="og:site_name" content="<%= t('site_name') %>">
-  <meta property="og:description" content="<%= t('about_us_long') %>">
+  <meta property="og:site_name" content="<%= t(:site_name) %>">
+  <meta property="og:description" content="<%= t(:about_us_long) %>">
 <% end %>
 
 <div id="signinWarning" class="reveal-modal medium" data-reveal>
-  <h2 class="font-droid-kufi"><%= t('warning') %></h2>
-  <h3 class="panel"><%= t('you_need_to_sign_in') %></h3>
+  <h2 class="font-droid-kufi"><%= t(:warning) %></h2>
+  <h3 class="panel"><%= t(:you_need_to_sign_in) %></h3>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 

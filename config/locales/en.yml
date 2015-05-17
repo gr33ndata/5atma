@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  locale: en_US
   site_name: 5atma  
   sign_out: Sign out
   sign_in: Sign in with Facebook

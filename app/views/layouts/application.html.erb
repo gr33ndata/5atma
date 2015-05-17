@@ -12,12 +12,13 @@
       <%= yield(:fb_meta_tags) %>
     <% else %>
       <!--Facebook Meta Tags-->
-      <meta property="og:locale" content="ar_EG">
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="<%= t(:locale) %>">
       <meta property="og:image" content="http://5atma.net/assets/fbbanner.png"/>
       <meta property="og:url" content="<%= current_url %>"/>
-      <meta property="og:title" content="<%= t('site_name') %>"/>
-      <meta property="og:site_name" content="<%= t('site_name') %>">
-      <meta property="og:description" content="<%= t('about_us_long') %>">
+      <meta property="og:title" content="<%= t(:site_name) %>"/>
+      <meta property="og:site_name" content="<%= t(:site_name) %>">
+      <meta property="og:description" content="<%= t(:about_us_long) %>">
     <% end %>
 
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>

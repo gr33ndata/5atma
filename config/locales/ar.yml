@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ar:
+  locale: ar_AR
   site_name: خَتمة  
   sign_out: سجل خروج
   sign_in: سجل دخول بالفيسبوك
